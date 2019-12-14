@@ -1,4 +1,5 @@
 <?php
+// phpinfo();exit;
     // 获取聊天内容接口
     require_once "./inc/function.php";
     require_once "./inc/mysql.php";
@@ -9,5 +10,8 @@
     if (!$user_id) {
         error("请先登录后重试","https://baidu.com");
     }
-
+    $sql = "SELECT * FROM `info`";
+    $res = $mysql -> execute($sql);
+    $info = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    dump($info);
 ?>
