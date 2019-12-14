@@ -13,5 +13,7 @@
     $sql = "SELECT * FROM `info`";
     $res = $mysql -> execute($sql);
     $info = mysqli_fetch_all($res,MYSQLI_ASSOC);
-    dump($info);
+    $data['count'] = mysqli_num_rows($res);
+    $data['data'] = $info;
+    echo json_encode($data);
 ?>
