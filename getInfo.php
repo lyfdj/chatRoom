@@ -1,8 +1,13 @@
 <?php
     // 获取聊天内容接口
     require_once "./inc/function.php";
-    $user_id = 0;
+    require_once "./inc/mysql.php";
+    $mysql = new mysql();
+    // echo $mysql -> getErrorMsg();
+    $user_id = 1;
+    // 防止非法登录
     if (!$user_id) {
-        error("请先登录后重试");
+        error("请先登录后重试","https://baidu.com");
     }
+
 ?>
