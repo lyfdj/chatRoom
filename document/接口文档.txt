@@ -1,0 +1,17 @@
+1.获取所有聊天记录接口：
+URL：		http://chatRoom.hw13.cn/getInfo.php
+发送数据：   无
+返回格式：	json格式
+		{
+			code: 0,
+			count: 5,
+			data: [{},{},{}]
+		}
+
+2.发送聊天信息：
+URL：		http://chatRoom.hw13.cn/setInfo.php
+发送数据：   content: 具体内容
+返回格式：	json格式
+		{
+			code: 0
+		}
