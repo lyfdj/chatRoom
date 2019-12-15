@@ -15,5 +15,6 @@
     $info = mysqli_fetch_all($res,MYSQLI_ASSOC);
     $data['count'] = mysqli_num_rows($res);
     $data['data'] = $info;
+    $data['code'] = 0;
     echo json_encode($data);
 ?>

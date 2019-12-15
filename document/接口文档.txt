@@ -1,5 +1,6 @@
 1.获取所有聊天记录接口：
 URL：		http://192.168.1.103/getInfo.php
+发送方式：   POST / GET
 发送数据：   无
 返回格式：	json格式
 		{
@@ -10,8 +11,20 @@ URL：		http://192.168.1.103/getInfo.php
 
 2.发送聊天信息：
 URL：		http://192.168.1.103/setInfo.php
+发送方式：   POST
 发送数据：   content: 具体内容
 返回格式：	json格式
 		{
 			code: 0
 		}
+
+3.获取聊天室成员：
+URL：        http://192.168.1.103/getUser.php
+发送方式：   POST / GET
+发送数据：   无
+返回格式：   json格式
+        {
+            code: 0,
+            count: 5,
+            data: [{},{},{}]
+        }
