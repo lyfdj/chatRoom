@@ -9,6 +9,7 @@ function setInfo() {
     $.post(url + "setInfo.php",{'content': content},function(ret){
         if (ret.code == 0) {
             $('textarea[name="content"]').val('');
+            getInfo();
             return true;
         }else{
             layer.msg("错误！发送信息失败!",{icon: 2});
