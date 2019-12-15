@@ -17,7 +17,9 @@
     $rows = $mysql -> field('a.id,b.nickname,b.name,a.content,a.created_at')
         -> table('`info` as a,`user` as b')
         -> where('a.user_id=b.id')
+        -> order('a.created_at')
         -> select();
+        // halt($mysql -> getLastQuery());
     $data['count'] = count($rows);
     $data['data'] = $rows;
     $data['code'] = 0;

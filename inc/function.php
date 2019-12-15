@@ -17,4 +17,11 @@ EOF;
         var_dump($var);
         echo "</pre>";
     }
+    function halt($var='')
+    {
+        echo "<pre>";
+        var_dump($var);
+        echo "</pre>";
+        exit();
+    }
 ?>

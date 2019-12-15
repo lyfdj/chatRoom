@@ -88,6 +88,13 @@
             return $this;
         }
 
+        // 传入排序条件，返回对象
+        public function order($order)
+        {
+            $this -> order = "ORDER BY ".$order;
+            return $this;
+        }
+
         // 执行查询，多条
         public function select()
         {
@@ -95,7 +102,7 @@
                 $this -> errMsg = "查询条件不完整";
                 return false;
             }
-            $sql = "SELECT {$this -> field} FROM {$this -> table} WHERE {$this -> where}";
+            $sql = "SELECT {$this -> field} FROM {$this -> table} WHERE {$this -> where} {$this -> order}";
             $res = $this -> execute($sql);
             $rows = mysqli_fetch_all($res,MYSQLI_ASSOC);
             return $rows;
