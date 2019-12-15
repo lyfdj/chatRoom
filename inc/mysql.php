@@ -95,7 +95,7 @@
                 $this -> errMsg = "查询条件不完整";
                 return false;
             }
-            $sql = "SELECT {$this -> field} FROM `{$this -> table}` WHERE {$this -> where}";
+            $sql = "SELECT {$this -> field} FROM {$this -> table} WHERE {$this -> where}";
             $res = $this -> execute($sql);
             $rows = mysqli_fetch_all($res,MYSQLI_ASSOC);
             return $rows;
