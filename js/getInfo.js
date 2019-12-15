@@ -2,21 +2,15 @@ getInfo();
 function getInfo() {
     $.get("http://192.168.1.102/getInfo.php",{},function(res){
         if (res.code == 0) {
-            // console.log("成功");
-            // console.log(res.data);
-            // $('#').
-            // for (var i = res.data.length - 1; i >= 0; i--) {
-                for (var i = 0; i < res.data.length; i++) {
-
-                    var time = formatTime(res.data[i].created_at);
-                    var str = '<div class="news"><span>' + res.data[i].nickname + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
-                // console.log(str);
+            $("#infoBox").text('');
+            for (var i = 0; i < res.data.length; i++) {
+                var time = formatTime(res.data[i].created_at);
+                var str = '<div class="news"><span>' + res.data[i].nickname + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
                 var obj = $(str);
                 $("#infoBox").append(obj);
                 var scrollHeight = $('#infoBox').prop("scrollHeight");
                 $('#infoBox').scrollTop(scrollHeight,800);
             }
-
             return true;
         }else{
             // console.log("失败");
