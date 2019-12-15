@@ -52,7 +52,6 @@
 				<p>hhhhhhh</p>
 			</div>
 		</div>
-
 	</div>
 	<!-- 聊天室成员部分 -->
 	<div class="right">
@@ -66,11 +65,17 @@
 
 	</div>
 	<div class="inputField">
-		<textarea name="" placeholder="请输入内容"></textarea>
+		<textarea name="content" placeholder="请输入内容"></textarea>
 	</div>
 	<div class="btn">
-		<input type="button" name="" value="发送" class="btn btn-success">
+		<input type="button" name="" value="发送" class="btn btn-success" onclick="setInfo()">
 	</div>
 </div>
+<!-- 引入 JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- 引入 layer -->
+<script type="text/javascript" src="./layer/layer.js"></script>
+<!-- 发送聊天信息 -->
+<script type="text/javascript" src="./js/setInfo.js"></script>
 </body>
 </html>
