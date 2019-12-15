@@ -13,6 +13,8 @@ function getInfo() {
                 // console.log(str);
                 var obj = $(str);
                 $("#infoBox").append(obj);
+                var scrollHeight = $('#infoBox').prop("scrollHeight");
+                $('#infoBox').scrollTop(scrollHeight,800);
             }
 
             return true;
