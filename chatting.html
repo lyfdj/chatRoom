@@ -29,7 +29,7 @@
 
 	</div>
 	<div class="inputField">
-		<textarea name="content" placeholder="请输入内容"></textarea>
+		<textarea name="content" placeholder="请输入内容" onkeyup="if(event.keyCode == 13){setInfo();};"></textarea>
 	</div>
 	<div class="btn">
 		<input type="button" name="" value="发送" class="btn btn-success" onclick="setInfo()">
