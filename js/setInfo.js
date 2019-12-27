@@ -1,6 +1,6 @@
 // 发送聊天信息
 function setInfo() {
-    var url = 'http://192.168.1.102/';
+    var url = '../interface/';
     var content = $('textarea[name="content"]').val();
     if (!content) {
         layer.msg("空信息不能发送",{icon: 2});

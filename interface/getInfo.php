@@ -1,8 +1,8 @@
 <?php
 // phpinfo();exit;
     // 获取聊天内容接口
-    require_once "./inc/function.php";
-    require_once "./inc/mysql.php";
+    require_once "../inc/function.php";
+    require_once "../inc/mysql.php";
     $mysql = new mysql();
     // echo $mysql -> getErrorMsg();
     $user_id = 1;

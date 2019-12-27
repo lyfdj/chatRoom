@@ -1,7 +1,7 @@
 <?php
     // 发送聊天信息接口
-    require_once "./inc/function.php";
-    require_once "./inc/mysql.php";
+    require_once "../inc/function.php";
+    require_once "../inc/mysql.php";
     $user_id = 1;
     // 防止非法登录
     if (!$user_id) {
