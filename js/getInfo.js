@@ -1,6 +1,6 @@
 getInfo();
 function getInfo() {
-    $.get("../interface/getInfo.php",{},function(res){
+    $.get("http://chatroom.hw13.cn/getInfo.php",{},function(res){
         if (res.code == 0) {
             $("#infoBox").text('');
             for (var i = 0; i < res.data.length; i++) {
@@ -13,26 +13,16 @@ function getInfo() {
             }
             return true;
         }else{
-            // console.log("失败");
             layer.msg("聊天记录获取失败",{icon: 2});
             return false;
         }
     },"json");
-    // 第一个参数： 接口的URL
-    // 第二个参数： 需要发送到接口的数据
-    // 第三个参数： 回调函数 -> 获取接口返回的数据
-    // 第四个参数： 期待返回数据类型
 }
 
 function formatTime (time) {
-    // let unixtime = time;
-    // let unixTimestamp = new Date(unixtime * 1000);
-    // let Y = unixTimestamp.getFullYear();
-    // let M = ((unixTimestamp.getMonth() + 1) > 10 ? (unixTimestamp.getMonth() + 1) : '0' + (unixTimestamp.getMonth() + 1));
-    // let D = (unixTimestamp.getDate() > 10 ? unixTimestamp.getDate() : '0' + unixTimestamp.getDate());
-    // let toDay = Y + '-' + M + '-' + D;
-    // return toDay;
+    // 将 Unix 时间戳转换为时间对象
     var unixTimestamp = new Date(time* 1000);
+    // 获取格式化后的时间字符串
     commonTime = unixTimestamp.toLocaleString();
     return commonTime;
 }
