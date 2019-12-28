@@ -4,11 +4,16 @@ function getInfo() {
         if (res.code == 0) {
             $("#infoBox").text('');
             for (var i = 0; i < res.data.length; i++) {
+                // 基础信息
+                var user_id = res.data[i].user_id;
                 var time = formatTime(res.data[i].created_at);
-                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name;
+                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name + " " + user_id;
+                // 组合插入的 DOM 元素
                 var str = '<div class="news"><span>' + name + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
                 var obj = $(str);
+                // DOM 元素放入 DOM 树当中
                 $("#infoBox").append(obj);
+                // 滚动条到最下面
                 var scrollHeight = $('#infoBox').prop("scrollHeight");
                 $('#infoBox').scrollTop(scrollHeight,800);
             }

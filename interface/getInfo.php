@@ -14,7 +14,7 @@
     // $res = $mysql -> execute($sql);
     // $info = mysqli_fetch_all($res,MYSQLI_ASSOC);
     // SELECT a.id,b.nickname,b.name,a.content,a.created_at FROM `info` as a,user as b where a.user_id=b.id;
-    $rows = $mysql -> field('a.id,b.nickname,b.name,a.content,a.created_at')
+    $rows = $mysql -> field('a.id,b.nickname,b.name,a.content,a.created_at,a.user_id')
         -> table('`info` as a,`user` as b')
         -> where('a.user_id=b.id')
         -> order('a.created_at')
