@@ -5,7 +5,9 @@ function getUsers() {
         if (res.code == 0) {
             $("#usersBox").text('');
             for (var i = 0; i < res.data.length; i++) {
-                var str = '<p>' + res.data[i].id + ':' + res.data[i].name + '</p>';
+                var user_id = res.data[i].id;
+                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name + " " + user_id;
+                var str = '<p>' + res.data[i].id + ':' + name + '</p>';
                 var obj = $(str);
                 $("#usersBox").append(obj);
                 // $('#usersBox').scrollTop(scrollHeight,800);

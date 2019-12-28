@@ -8,10 +8,6 @@
         // 游客身份发布内容
         $user_id = (int)$_POST['identity'];
     }
-    // 防止非法登录
-    if (!$user_id) {
-        error("请先登录后重试","https://baidu.com");
-    }
     $content = $_POST['content'];
     $created_at = time();
 
