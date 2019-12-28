@@ -7,7 +7,7 @@
         // 连接标识符
         private $link_id = null;
         // 数据库服务器主机地址
-        private $host = "122.51.76.233";
+        private $host = "192.168.13.6";
         // 数据库服务器主机用户名
         private $user = "chatRoom";
         // 数据库服务器主机密码

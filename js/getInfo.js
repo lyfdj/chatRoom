@@ -1,6 +1,6 @@
 getInfo();
 function getInfo() {
-    $.get("http://chatroom.hw13.cn/getInfo.php",{},function(res){
+    $.get(config.interface.basePath + "getInfo.php",{},function(res){
         if (res.code == 0) {
             $("#infoBox").text('');
             for (var i = 0; i < res.data.length; i++) {
