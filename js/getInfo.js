@@ -5,7 +5,8 @@ function getInfo() {
             $("#infoBox").text('');
             for (var i = 0; i < res.data.length; i++) {
                 var time = formatTime(res.data[i].created_at);
-                var str = '<div class="news"><span>' + res.data[i].nickname + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
+                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name;
+                var str = '<div class="news"><span>' + name + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
                 var obj = $(str);
                 $("#infoBox").append(obj);
                 var scrollHeight = $('#infoBox').prop("scrollHeight");
