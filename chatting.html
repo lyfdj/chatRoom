@@ -30,13 +30,15 @@
 	</div>
 	<div class="inputField">
 		<textarea name="content" placeholder="请输入内容" onkeyup="if(event.keyCode == 13){setInfo();};"></textarea>
+		<input type="hidden" name="identity">
 	</div>
 	<div class="btn">
 		<input type="button" name="" value="发送" class="btn btn-success" onclick="setInfo()">
 	</div>
 </div>
 <!-- 引入 JQuery -->
-<script src="./plugins/jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./plugins/jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./plugins/jquery/jquery.cookie.js"></script>
 <!-- 引入 layer -->
 <script type="text/javascript" src="./plugins/layer/layer.js"></script>
 <!-- 引入配置文件 -->

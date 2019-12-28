@@ -1,11 +1,13 @@
 // 发送聊天信息
 function setInfo() {
     var content = $('textarea[name="content"]').val();
+    var identity = $('input[name="identity"]').val();
+
     if (!content) {
         layer.msg("空信息不能发送",{icon: 2});
         return false;
     }
-    $.post(config.interface.basePath + "setInfo.php",{'content': content},function(ret){
+    $.post(config.interface.basePath + "setInfo.php",{'content': content,'identity': identity},function(ret){
         if (ret.code == 0) {
             $('textarea[name="content"]').val('');
             getInfo();

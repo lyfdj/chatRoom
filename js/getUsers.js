@@ -1,4 +1,5 @@
 getUsers();
+isIdentity();
 function getUsers() {
     $.get(config.interface.basePath + "getUsers.php",{},function(res){
         if (res.code == 0) {
@@ -17,10 +18,25 @@ function getUsers() {
     },"json");
 }
 
-function formatTime (time) {
-    // 将 Unix 时间戳转换为时间对象
-    var unixTimestamp = new Date(time* 1000);
-    // 获取格式化后的时间字符串
-    commonTime = unixTimestamp.toLocaleString();
-    return commonTime;
+// 为聊天成员注册身份
+function isIdentity () {
+    // 已有身份成员
+    if ($.cookie('identity')) {
+        $('input[name=identity]').val($.cookie('identity'));
+        return true;
+    }
+    $.get(config.interface.basePath + "regStatus.php",function(res){
+        if(res.code > 0){
+            // 操作失败
+            layer.msg(res.msg,{icon: 2});
+            return false;
+        }else{
+            $.cookie('identity',res.id,{
+                expires:2,
+                path:'/',
+                secure:false
+            })
+            return true;
+        }
+    },"json");
 }
