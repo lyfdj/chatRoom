@@ -114,5 +114,40 @@
             $sql = $this -> lastQuery == null ? '未执行过SQL语句' : $this -> lastQuery;
             return $sql;
         }
+
+        // 插入数据
+        public function insert($table,$data)
+        {
+            if (!$table) {
+                $this -> errMsg = "需要插入的数据表不能为空！";
+                return false;
+            }
+            // 处理字段和数据
+            $fields = array_keys($data);
+            $values = array_values($data);
+            $field = implode(",", $fields);
+            // 处理数组值加上引号
+            foreach ($values as $k => $v) {
+                $values[$k] = "'".$v."'";
+            }
+            $value = implode(",", $values);
+            $sql = "INSERT INTO {$table}({$field}) VALUES({$value})";
+            $res = $this -> execute($sql);
+            if ($res) {
+                return $this -> getLastInsId();
+            }else{
+                return false;
+            }
+        }
+
+        // 获取最后一次插入操作数据的id
+        public function getLastInsId()
+        {
+            if (!$this -> link_id) {
+                $this -> link();
+            }
+            $lastInsId = mysqli_insert_id($this -> link_id);
+            return $lastInsId;
+        }
     }
 ?>

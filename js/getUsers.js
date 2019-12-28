@@ -21,7 +21,9 @@ function getUsers() {
 // 为聊天成员注册身份
 function isIdentity () {
     // 已有身份成员
-    if ($.cookie('identity')) {
+    // $.cookie('identity',null);
+    // console.log("5841:" + $.cookie('identity'));return;
+    if (!isNaN($.cookie('identity'))) {
         $('input[name=identity]').val($.cookie('identity'));
         return true;
     }
@@ -31,11 +33,9 @@ function isIdentity () {
             layer.msg(res.msg,{icon: 2});
             return false;
         }else{
-            $.cookie('identity',res.id,{
-                expires:2,
-                path:'/',
-                secure:false
-            })
+            // console.log(res.id);
+            $.cookie('identity',res.id)
+            $('input[name=identity]').val(res.id);
             return true;
         }
     },"json");
