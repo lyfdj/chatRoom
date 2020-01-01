@@ -149,5 +149,49 @@
             $lastInsId = mysqli_insert_id($this -> link_id);
             return $lastInsId;
         }
+
+        // 查找指定记录
+        public function find($table,$where,$field = '*')
+        {
+            if (gettype($where) == 'array') {
+                $whereStr = '';
+                foreach ($where as $k => $v) {
+                    $whereArr[] = "{$k} = '{$v}'";
+                }
+                $whereStr = implode(' AND ', $whereArr);
+            } else if (gettype($where) == 'string') {
+                $whereStr = $where;
+            }
+            $sql = "SELECT {$field} FROM {$table} WHERE {$whereStr} LIMIT 1";
+            $res = $this -> execute($sql);
+            if ($res == null) {
+                return null;
+            }
+            $row = mysqli_fetch_array($res);
+            return $row;
+        }
+
+        // 查找指定记录集
+        public function findAll($table,$where,$field = '*')
+        {
+            if (gettype($where) == 'array') {
+                $whereStr = '';
+                foreach ($where as $k => $v) {
+                    $whereArr[] = "{$k} = '{$v}'";
+                }
+                $whereStr = implode(' AND ', $whereArr);
+            } else if (gettype($where) == 'string') {
+                $whereStr = $where;
+            }
+            $sql = "SELECT {$field} FROM {$table} WHERE {$whereStr}";
+            $res = $this -> execute($sql);
+            if ($res == null) {
+                return null;
+            }
+            while ($info = mysqli_fetch_array($res)) {
+                $rows[] = $info;
+            }
+            return $rows;
+        }
     }
 ?>

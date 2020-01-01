@@ -6,8 +6,11 @@ function getUsers() {
             $("#usersBox").text('');
             for (var i = 0; i < res.data.length; i++) {
                 var user_id = res.data[i].id;
-                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name + " " + user_id;
-                var str = '<p>' + res.data[i].id + ':' + name + '</p>';
+                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name;
+                if (res.data[i].temp_tag == 1) {
+                    name = name  + " " + user_id;
+                }
+                var str = '<p id="user' + user_id + '">' + (i+1) + ':' + name + '</p>';
                 var obj = $(str);
                 $("#usersBox").append(obj);
                 // $('#usersBox').scrollTop(scrollHeight,800);
@@ -38,6 +41,7 @@ function isIdentity () {
             // console.log(res.id);
             $.cookie('identity',res.id)
             $('input[name=identity]').val(res.id);
+            $('#user' + res.id).style('color','lightblue');
             return true;
         }
     },"json");

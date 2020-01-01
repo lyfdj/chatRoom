@@ -3,7 +3,7 @@
     require_once "../inc/mysql.php";
     require_once "../inc/function.php";
     $mysql = new mysql();
-    $rows = $mysql -> table("user") -> field("id,nickname,name,created_at") -> where("1=1") -> select();
+    $rows = $mysql -> table("user") -> field("id,nickname,name,created_at,temp_tag") -> where("1=1") -> select();
     $data['code'] = 0;
     $data['count'] = count($rows);
     $data['data'] = $rows;

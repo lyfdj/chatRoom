@@ -7,7 +7,10 @@ function getInfo() {
                 // 基础信息
                 var user_id = res.data[i].user_id;
                 var time = formatTime(res.data[i].created_at);
-                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name + " " + user_id;
+                var name = res.data[i].nickname?res.data[i].nickname:res.data[i].name;
+                if (res.data[i].temp_tag == 1) {
+                     name = name + " " + user_id;
+                }
                 // 组合插入的 DOM 元素
                 var str = '<div class="news"><span>' + name + '(' + time + ')</span> <div class="text"> <p>' + res.data[i].content + '</p> </div> </div>';
                 var obj = $(str);
